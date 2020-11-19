@@ -33,7 +33,7 @@ class Notepad:
             self.__thisHeight = kwargs['height'] 
         except KeyError: 
             pass
-        self.__root.title("Untitled - ING Text Editor 2.0") 
+        self.__root.title("Untitled - Galaxywrite") 
         screenWidth = self.__root.winfo_screenwidth() 
         screenHeight = self.__root.winfo_screenheight() 
         left = (screenWidth / 2) - (self.__thisWidth / 2)  
@@ -72,7 +72,7 @@ class Notepad:
         self.__thisMenuBar.add_cascade(label="Edit", 
                                        menu=self.__thisEditMenu)      
           
-        self.__thisHelpMenu.add_command(label="About ING Text Editor", 
+        self.__thisHelpMenu.add_command(label="About Galaxywrite", 
                                         command=self.__showAbout)  
         self.__thisMenuBar.add_cascade(label="Help", 
                                        menu=self.__thisHelpMenu) 
@@ -90,7 +90,7 @@ class Notepad:
         # exit() 
   
     def __showAbout(self): 
-        showinfo("Notepad","Original name was Leggings Text Editor") 
+        showinfo("Notepad","This program got a new name. It was formerly called Leggings Text Editor.") 
   
     def __openFile(self): 
           
@@ -103,7 +103,7 @@ class Notepad:
             self.__file = None
         else: 
               
-            self.__root.title(os.path.basename(self.__file) + " - Notepad") 
+            self.__root.title(os.path.basename(self.__file) + " - Galaxywriter") 
             self.__thisTextArea.delete(1.0,END) 
   
             file = open(self.__file,"r") 
@@ -114,7 +114,7 @@ class Notepad:
   
           
     def __newFile(self): 
-        self.__root.title("Untitled - Notepad") 
+        self.__root.title("Untitled - Galaxywriter") 
         self.__file = None
         self.__thisTextArea.delete(1.0,END) 
   
@@ -133,7 +133,7 @@ class Notepad:
                 file = open(self.__file,"w") 
                 file.write(self.__thisTextArea.get(1.0,END)) 
                 file.close() 
-                self.__root.title(os.path.basename(self.__file) + " - Notepad") 
+                self.__root.title(os.path.basename(self.__file) + " - Galaxywriter") 
                   
               
         else: 
