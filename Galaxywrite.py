@@ -73,7 +73,11 @@ class Notepad:
                                        menu=self.__thisEditMenu)      
           
         self.__thisHelpMenu.add_command(label="About Galaxywrite", 
-                                        command=self.__showAbout)  
+                                        command=self.__showAbout)
+
+        self.__thisHelpMenu.add_command(label="Can't open a document", 
+                                        command=self.__showDoc)
+        
         self.__thisMenuBar.add_cascade(label="Help", 
                                        menu=self.__thisHelpMenu) 
   
@@ -90,13 +94,17 @@ class Notepad:
         # exit() 
   
     def __showAbout(self): 
-        showinfo("Notepad","This program got a new name. It was formerly called Leggings Text Editor.") 
+        showinfo("Galaxywrite","This program is written in Python. It was formerly called Leggings Text Editor and it was the first program of the Galaxy Suit.")
+  
+    def __showDoc(self): 
+        showinfo("Galaxywrite","Galaxywrite dosen't support documents made by Microsoft Word yet. It supports txt and Python files.")
   
     def __openFile(self): 
           
         self.__file = askopenfilename(defaultextension=".txt", 
                                       filetypes=[("All Files","*.*"), 
-                                        ("Text Documents","*.txt")]) 
+                                        ("Text Documents","*.txt"),
+                                         ("Python Scripts","*.py")]) 
   
         if self.__file == "": 
               
@@ -124,7 +132,8 @@ class Notepad:
             self.__file = asksaveasfilename(initialfile='Untitled.txt', 
                                             defaultextension=".txt", 
                                             filetypes=[("All Files","*.*"), 
-                                                ("Text Documents","*.txt")]) 
+                                                ("Text Documents","*.txt"),
+                                                 ("Python Scripts","*.py")]) 
   
             if self.__file == "": 
                 self.__file = None
